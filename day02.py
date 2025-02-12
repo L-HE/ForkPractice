@@ -1,5 +1,7 @@
 # Assignment Day 02
 # v1.4) Make my_pow custom function instead of ** operator, power function and make it work.
+import math
+
 
 def my_pow(b, e) -> float:
     """
@@ -8,9 +10,20 @@ def my_pow(b, e) -> float:
     :param e: exponent
     :return: the power result in the form of a real number
     """
+    if e < 0:
+        b = 1 / b
+        e = e * -1
+
     result = 1
-    for k in range(e):
+
+    i = int(e)
+    f = e - i
+
+    for _ in range(i):
         result = result * b
+
+    if f > 0:
+        result = result * math.exp(f*math.log(b))
     return result
 
 
@@ -31,8 +44,9 @@ def is_prime(num) -> bool:
         return False
     return True
 
+print(my_pow(10, -1))
+print(my_pow(2, 9))
 
-#print(my_pow(2, 9))
 numbers = input("Input number : ").split()  # ex) 900 1000
 n1 = int(numbers[0])
 n2 = int(numbers[1])
