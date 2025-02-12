@@ -21,6 +21,7 @@ def my_pow(b, e) -> float:
 
     for _ in range(i):
         result = result * b
+
     if f > 0:
         result = result * math.exp(f*math.log(b))
     return result
@@ -42,6 +43,8 @@ def is_prime(num) -> bool:
         return False
     return True
 
+print(my_pow(10, -1))
+print(my_pow(2, 9))
 
 numbers = input("Input number : ").split()  # ex) 900 1000
 n1 = int(numbers[0])
